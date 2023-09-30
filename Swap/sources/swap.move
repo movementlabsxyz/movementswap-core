@@ -1636,6 +1636,7 @@ module SwapDeployer::AnimeSwapPoolV1 {
         genesis::setup();
         create_account_for_test(signer::address_of(deployer));
         let addr = account::create_resource_address(&signer::address_of(deployer), x"30");
+        aptos_std::debug::print<address>(&addr);
         assert!(addr == @ResourceAccountDeployer, TEST_ERROR);
     }
 
