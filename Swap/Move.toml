@@ -4,11 +4,11 @@ version = "1.0.1"
 
 [dependencies]
 AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "83641d3f083762f31700060e5e95fbb1cbc28bf0" }
-LPCoin = { local= "../LPCoin" }
-LPResourceAccount = { local= "../LPResourceAccount" }
-U256 = { local= "../u256" }
-UQ64x64 = { local= "../uq64x64" }
+LPCoin = { local = "../LPCoin" }
+LPResourceAccount = { local = "../LPResourceAccount" }
+U256 = { local = "../u256" }
+UQ64x64 = { local = "../uq64x64" }
 
 [addresses]
-SwapDeployer = "0x6dc4a568ae04c627de026a740f12d6d2d7e329001e6c37eecb8afdc66ad4a593"
-ResourceAccountDeployer = "0xe3af437c5d29fe7f2cbfa66ec4b24466c4706fb700ae829cc6b86e7e619c06bc"
+SwapDeployer = "0xf5bf08fb59e8bf53e559d01f028fefdb70c7f730498d799f6739ec1036cb377e"
+ResourceAccountDeployer = "0x5e2b4a9d3da06d50e4e98afb9ff821dd4f25bf26294ab4da1b731bad363c48a1"

@@ -12,7 +12,7 @@ module SwapDeployer::AnimeSwapPoolV1 {
     use aptos_framework::account::{Self, SignerCapability};
     use u256::u256;
     use uq64x64::uq64x64;
-    // use std::debug;    // For debug
+    use std::debug;    // For debug
 
     /// pool data
     struct LiquidityPool<phantom X, phantom Y> has key {
