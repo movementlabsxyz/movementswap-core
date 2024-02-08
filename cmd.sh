@@ -9,7 +9,7 @@ ResourceAccountDeployer="0x5e2b4a9d3da06d50e4e98afb9ff821dd4f25bf26294ab4da1b731
 PATH_TO_REPO="."
 
 # publish modules
-movement aptos move publish --package-dir $PATH_TO_REPO/uq64x64/ --assume-yes --url "https://seed-node1.movement aptoslabs.xyz/v1"
+movement aptos move publish --package-dir $PATH_TO_REPO/uq64x64/ --assume-yes --url "https://aptos.testnet.m1.movementlabs.xyz"
 movement aptos move publish --package-dir $PATH_TO_REPO/u256/ --assume-yes
 movement aptos move publish --package-dir $PATH_TO_REPO/TestCoin/ --assume-yes
 movement aptos move publish --package-dir $PATH_TO_REPO/Faucet/ --assume-yes

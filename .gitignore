@@ -1,2 +1,5 @@
 */build/
 .movement aptos
+.aptos/
+.aptos/*build/
+/.aptos/
