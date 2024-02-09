@@ -10,5 +10,5 @@ U256 = { local = "../u256" }
 UQ64x64 = { local = "../uq64x64" }
 
 [addresses]
-SwapDeployer = "0xf5bf08fb59e8bf53e559d01f028fefdb70c7f730498d799f6739ec1036cb377e"
-ResourceAccountDeployer = "0x5e2b4a9d3da06d50e4e98afb9ff821dd4f25bf26294ab4da1b731bad363c48a1"
+SwapDeployer = "0x03d74f10108cc4e9bfe3831b7dc6cc5ad8b8eec595c4fc174e933dd31eb1c71a"
+ResourceAccountDeployer = "0xe26ac2039336c7cd13a2c9f301be595cfa827081457ab4c03d18627dad2ab1a6"

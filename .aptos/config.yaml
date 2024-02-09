@@ -1,8 +1,0 @@
----
-profiles:
-  default:
-    private_key: "0x22f0c71450af02e19104916a0224f17eb8052b47e39e0b859ef6d28b43729da8"
-    public_key: "0xd88495b315406423ad3031ed6701b918b982033035d56842bdd8e09a671607e8"
-    account: f5bf08fb59e8bf53e559d01f028fefdb70c7f730498d799f6739ec1036cb377e
-    rest_url: "https://aptos.testnet.m1.movementlabs.xyz/"
-    faucet_url: "https://aptos.testnet.m1.movementlabs.xyz/"
