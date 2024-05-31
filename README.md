@@ -1,11 +1,11 @@
-# AnimeSwap
+# MovementSwap
 
-**AnimeSwap** is AMM protocol for [Aptos](https://www.aptos.com/) blockchain. 
+**MovementSwap** is AMM protocol for [Aptos](https://www.aptos.com/) blockchain. It's a fork of [AnimeSwap](https://animeswap.org).
 
 * [Contracts documents](https://docs.animeswap.org/docs/contracts/Aptos/contracts)
 * [SDK](https://github.com/AnimeSwap/v1-sdk)
 
-The current repository contains: 
+The current repository contains:
 
 * u256
 * uq64x64
@@ -29,6 +29,7 @@ subdir = 'Swap'
 -----
 
 Swap example:
+
 ```move
 // swap exact coin to maximal coin
 use SwapDeployer::AnimeSwapPoolV1;
@@ -38,7 +39,9 @@ let amount_in = 100000;
 let coins_in = coin::withdraw(&account, amount_in);
 let coins_out = AnimeSwapPoolV1::swap_coins_for_coins<X, Y>(coins_in);
 ```
+
 or
+
 ```move
 // swap minimal coin to exact coin (maybe some more dust)
 use SwapDeployer::AnimeSwapPoolV1;
@@ -57,6 +60,7 @@ assert!(coin::value(&coins_out) >= amount_out, 1);
 -----
 
 Flash swap example:
+
 ```move
 use SwapDeployer::AnimeSwapPoolV1Library;
 use SwapDeployer::AnimeSwapPoolV1;
@@ -86,7 +90,9 @@ if (AnimeSwapPoolV1Library::compare<X, Y>()) {
 };
 // keep the rest `coins_out`
 ```
+
 or
+
 ```move
 use SwapDeployer::AnimeSwapPoolV1Library;
 use SwapDeployer::AnimeSwapPoolV1;
