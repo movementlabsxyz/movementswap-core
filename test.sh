@@ -22,9 +22,15 @@ if [ -z "$SwapDeployer" ]; then
   exit 1
 fi
 
-test_resource_account_output=$(aptos move test --package-dir "$PATH_TO_REPO/Swap/" --filter test_resource_account --named-addresses SwapDeployer=default,uq64x64=default,u256=default,ResourceAccountDeployer=default)
+ test_resource_account_output=$(aptos move test --package-dir "$PATH_TO_REPO/Swap/" \
+--filter test_resource_account --named-addresses SwapDeployer=$SwapDeployer,uq64x64=$SwapDeployer,u256=$SwapDeployer)
 echo "Test Resource Account Output: $test_resource_account_output"
 ResourceAccountDeployer=$(echo "$test_resource_account_output" | grep -o '\[debug\] @[^\s]*' | sed 's/\[debug\] @\(.*\)/\1/')
+if [ -z "$ResourceAccountDeployer" ]; then
+  echo "ResourceAccountDeployer extraction failed."
+  exit 1
+fi
+
 
 echo "SwapDeployer: $SwapDeployer"
 echo "ResourceAccountDeployer: $ResourceAccountDeployer"
@@ -49,7 +55,7 @@ add_or_update_env() {
 }
 
 add_or_update_env "SWAP_DEPLOYER" $SwapDeployer
-add_or_update_env "RESOURCE_ACCOUNT_DEPLOYER" $ResourceAccountDeployer
+# add_or_update_env "RESOURCE_ACCOUNT_DEPLOYER" $ResourceAccountDeployer
 add_or_update_env "PRIVATE_KEY" $PrivateKey
 add_or_update_env "FULLNODE" $APTOS_URL
 
@@ -69,6 +75,7 @@ arg2=$(hexdump -ev '1/1 "%02x"' $PATH_TO_REPO/LPCoin/build/LPCoin/bytecode_modul
 # This command is to publish LPCoin contract, using ResourceAccountDeployer address. Note: replace two args with the above two hex
 aptos move run --function-id ${SwapDeployer}::LPResourceAccount::initialize_lp_account \
 --args hex:$arg1 hex:$arg2 --assume-yes
+
 aptos move publish --package-dir $PATH_TO_REPO/Swap/ --assume-yes --named-addresses SwapDeployer=$SwapDeployer,ResourceAccountDeployer=$ResourceAccountDeployer
 
 # admin steps
