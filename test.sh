@@ -155,3 +155,5 @@ aptos move run --function-id ${SwapDeployer}::AnimeSwapPoolV1::withdraw_dao_fee 
 --type-args ${SwapDeployer}::TestCoinsV1::BTC ${SwapDeployer}::TestCoinsV1::USDT
 aptos move run --function-id ${SwapDeployer}::AnimeSwapPoolV1::pause
 aptos move run --function-id ${SwapDeployer}::AnimeSwapPoolV1::unpause
+
+npx node-ts tests/typescript-sdk/main.test.ts --yes
