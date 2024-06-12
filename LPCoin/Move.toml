@@ -3,8 +3,8 @@ name = "LPCoin"
 version = "0.3.0"
 
 [dependencies]
-AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "83641d3f083762f31700060e5e95fbb1cbc28bf0" }
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "bbce0f188d7bef08218f1fc1f46bbd3676b5c74b" }
 
 [addresses]
-ResourceAccountDeployer = "0xf63ca86b418c320f5e1b57cc3962c67c51dab90acb5846b3fa49af6120c8caf7"
+ResourceAccountDeployer = "_"
 
