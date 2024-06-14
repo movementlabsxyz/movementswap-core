@@ -1,6 +1,21 @@
+[package]
+name = "rusttest"
+version = "0.1.0"
+edition = "2021"
+
+
 [dependencies]
 aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", branch = "devnet" }
 dotenv = "0.15.0"
+anyhow = "1.0"
+async-trait = "0.1.71"
+tokio = { version = "1.35.1", features = ["full"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2.2.2"
+rand = "0.7.3"
+bcs = "0.1.6"
+
 
 [patch.crates-io]
 merlin = { git = "https://github.com/aptos-labs/merlin" }

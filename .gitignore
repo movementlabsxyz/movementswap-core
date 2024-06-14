@@ -2,3 +2,7 @@
 .movement aptos
 
 .aptos/
+
+target/
+.idea
+.vscode
