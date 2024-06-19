@@ -11,7 +11,7 @@ const SwapDeployer = process.env.SWAP_DEPLOYER;
 const ResourceAccount = process.env.RESOURCE_ACCOUNT_DEPLOYER;
 
 
-const aptosConfig = new AptosConfig({ network: Network.CUSTOM, fullnode: process.env.FULLNODE, faucet: process.env.FAUCET  });
+const aptosConfig = new AptosConfig({ network: Network.DEVNET, fullnode: process.env.FULLNODE, faucet: process.env.FAUCET  });
 const aptos = new Aptos(aptosConfig);
 
 const privateKey = new Ed25519PrivateKey(process.env.PRIVATE_KEY as string);
@@ -36,12 +36,21 @@ async function transact(signer: any, func: `${string}::${string}::${string}`, ty
 }
 
 async function main() {
-console.log(aptosConfig)
 
     console.log("Requesting funds for Alice from Alice")
-    await aptos.faucet.fundAccount({ accountAddress: alice.accountAddress, amount: amount })
+    try {
+        // await aptos.faucet.fundAccount({ accountAddress: alice.accountAddress, amount: amount });
+        await fetch(`${process.env.FAUCET}/mint`, { method: 'POST', body: JSON.stringify({ address: alice.accountAddress, amount: amount }) })
+        console.log("Account funded successfully.");
+      } catch (error : any) {
+        console.log(error)
+        console.error("Error funding account:", error);
+        console.error("Error details:", error.message || error);
+      }
     console.log("Requesting funds for Alice from Bob")
-    await aptos.faucet.fundAccount({ accountAddress: bob.accountAddress, amount: amount })
+    // await aptos.faucet.fundAccount({ accountAddress: bob.accountAddress, amount: amount })
+    await fetch(`${process.env.FAUCET}/mint`, { method: 'POST', body: JSON.stringify({ address: bob.accountAddress, amount: amount }) })
+
     // describe("sdk", async () => {
     //     test("transaction reads", async () => {
 
